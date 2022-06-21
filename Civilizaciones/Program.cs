@@ -48,6 +48,34 @@ namespace Civilizaciones
 
                 throw;
             }
+
+            if (civ != null)
+            {
+                Console.WriteLine($"\nElija una civilización del 1 al {civ.Civilization.Count}");
+                int posi = (Convert.ToInt32(Console.ReadLine())) - 1;
+
+                Console.WriteLine($"\nID: {civ.Civilization[posi].Id}");
+                Console.WriteLine($"Nombre: {civ.Civilization[posi].Name}");
+                Console.WriteLine($"Expansión: {civ.Civilization[posi].Expansion}");
+                Console.WriteLine($"Tipo de ejercito: {civ.Civilization[posi].ArmyType}");
+
+                foreach (var item in civ.Civilization[posi].UniqueUnit)
+                {
+                    Console.WriteLine($"");
+                }
+
+                foreach (var item in civ.Civilization[posi].UniqueTech)
+                {
+                    Console.WriteLine($"");
+                }
+
+                Console.WriteLine($"Bonus de equipo: {civ.Civilization[posi].TeamBonus}");
+
+                foreach (var item in civ.Civilization[posi].CivilizationBonus)
+                {
+                    Console.WriteLine($"");
+                }
+            }
         }
     }
 }
