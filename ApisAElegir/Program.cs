@@ -15,7 +15,7 @@ namespace ApisVarias
                 $"https://age-of-empires-2-api.herokuapp.com/api/v1/units",
                 $"https://age-of-empires-2-api.herokuapp.com/api/v1/structures",
                 $"https://age-of-empires-2-api.herokuapp.com/api/v1/technologies"
-                };
+                }; //Los links de las respectivas apis
 
             int k;
             do
@@ -26,18 +26,20 @@ namespace ApisVarias
                 Console.WriteLine("Estructuras: 3");
                 Console.WriteLine("Tecnologías: 4");
                 k = (Convert.ToInt32(Console.ReadLine())) - 1;
-            } while (k < 0 || k > 3);
-            string url = links[k];
+            } while (k < 0 || k > 3);//Se elige cual es la api a mostrar
+
+            string url = links[k]; //Como ya se posee cual es la api, voy realizando el request
             var request = (HttpWebRequest)WebRequest.Create(url);
             request.Method = "GET";
             request.ContentType = "application/json";
             request.Accept = "application/json";
 
+            //Utilizo un switch para obtener la clase de la api elegida
             switch (k)
             {
                 case 0:
                     RootCivilization civ = null;
-
+                    //Obtengo la api de las civilizaciones
                     try
                     {
                         using (WebResponse response = request.GetResponse())
@@ -71,7 +73,7 @@ namespace ApisVarias
 
                 case 1:
                     RootUnit uni = null;
-
+                    //Obtengo la api de las unidades  ME TIRA ERROR EN LA DESERIALIZACIÓN
                     try
                     {
                         using (WebResponse response = request.GetResponse())
@@ -105,7 +107,7 @@ namespace ApisVarias
 
                 case 2:
                     RootStructure estu = null;
-
+                    //Obtengo la api de las estructuras ME TIRA ERROR EN LA DESERIALIZACIÓN
                     try
                     {
                         using (WebResponse response = request.GetResponse())
@@ -139,7 +141,7 @@ namespace ApisVarias
 
                 case 3:
                     RootTechnology tech = null;
-
+                    //Obtengo la api de las tecnologías
                     try
                     {
                         using (WebResponse response = request.GetResponse())
