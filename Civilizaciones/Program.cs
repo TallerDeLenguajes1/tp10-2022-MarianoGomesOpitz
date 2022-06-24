@@ -51,8 +51,12 @@ namespace Civilizaciones
 
             if (civ != null)
             {
-                Console.WriteLine($"\nElija una civilización del 1 al {civ.Civilization.Count}");
-                int posi = (Convert.ToInt32(Console.ReadLine())) - 1;
+                int posi;
+                do
+                {
+                    Console.WriteLine($"\nElija una civilización del 1 al {civ.Civilization.Count}");
+                    posi = (Convert.ToInt32(Console.ReadLine())) - 1;
+                } while (0 > posi || posi > (civ.Civilization.Count - 1));
 
                 Console.WriteLine($"\nID: {civ.Civilization[posi].Id}");
                 Console.WriteLine($"Nombre: {civ.Civilization[posi].Name}");
@@ -61,19 +65,19 @@ namespace Civilizaciones
 
                 foreach (var item in civ.Civilization[posi].UniqueUnit)
                 {
-                    Console.WriteLine($"");
+                    Console.WriteLine($"{item}");
                 }
 
                 foreach (var item in civ.Civilization[posi].UniqueTech)
                 {
-                    Console.WriteLine($"");
+                    Console.WriteLine($"{item}");
                 }
 
                 Console.WriteLine($"Bonus de equipo: {civ.Civilization[posi].TeamBonus}");
 
                 foreach (var item in civ.Civilization[posi].CivilizationBonus)
                 {
-                    Console.WriteLine($"");
+                    Console.WriteLine($"{item}");
                 }
             }
         }
