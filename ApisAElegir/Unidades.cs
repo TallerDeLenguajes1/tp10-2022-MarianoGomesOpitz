@@ -42,13 +42,13 @@ public class Unit
     public int BuildTime { get; set; }
 
     [JsonPropertyName("reload_time")]
-    public int ReloadTime { get; set; }
+    public double ReloadTime { get; set; }
 
     [JsonPropertyName("attack_delay")]
-    public int AttackDelay { get; set; }
+    public double AttackDelay { get; set; }
 
     [JsonPropertyName("movement_rate")]
-    public int MovementRate { get; set; }
+    public double MovementRate { get; set; }
 
     [JsonPropertyName("line_of_sight")]
     public int LineOfSight { get; set; }
@@ -57,7 +57,7 @@ public class Unit
     public int HitPoints { get; set; }
 
     [JsonPropertyName("range")]
-    public string Range { get; set; }
+    public object Range { get; set; }
 
     [JsonPropertyName("attack")]
     public int Attack { get; set; }
@@ -78,7 +78,7 @@ public class Unit
     public string Accuracy { get; set; }
 
     [JsonPropertyName("blast_radius")]
-    public int BlastRadius { get; set; }
+    public double BlastRadius { get; set; }
 }
 
 public class RootUnit

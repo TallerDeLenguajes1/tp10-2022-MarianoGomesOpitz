@@ -49,10 +49,10 @@ public class Structure
     public string Armor { get; set; }
 
     [JsonPropertyName("range")]
-    public string Range { get; set; }
+    public object Range { get; set; }
 
     [JsonPropertyName("reload_time")]
-    public int ReloadTime { get; set; }
+    public double ReloadTime { get; set; }
 
     [JsonPropertyName("attack")]
     public int Attack { get; set; }
